@@ -80,48 +80,7 @@ assign("cache_dir", cache_dir, envir = .GlobalEnv)
 # `ndc_input_file` is the path to this file, and `ndc_input_file_separator` is the delimiter used in the file.
 # FDA NDC product and package file is downloadable from: https://www.fda.gov/drugs/drug-approvals-and-databases/national-drug-code-directory?elqTrackId=b2f8af5cd98146b19b56b47feab2f6a0&elq=b28e6c325c6748e1bc1f24989a3eb0d6&elqaid=4255&elqat=1&elqCampaignId=3344
 # You can use any datasets with NDC with the 11-digit NDC format.
-
-ndc_input <- readr::read_delim(file = ndc_input_file, delim = ndc_input_file_separator, 
-                               col_types = c("NDCPACKAGECODE" = "character",  # Ensure NDC codes stay as text
-                                             "STARTMARKETINGDATE" = "character",
-                                             "ENDMARKETINGDATE" = "character")) %>% 
-  janitor::clean_names() %>%  # Clean column names: makes them lowercase, snake_case, and syntactically valid
-  dplyr::mutate(
-    # Convert marketing date strings into proper Date objects using the format YYYYMMDD
-    startmarketingdate = as.Date(startmarketingdate, "%Y%m%d"),
-    endmarketingdate = as.Date(endmarketingdate, "%Y%m%d")
-  ) %>% 
-  # Keep only rows that have a DEA schedule listed (controlled substances)
-  dplyr::filter(!is.na(deaschedule)) %>%  
-  # Split the full NDC package code into its three segments
-  tidyr::separate(
-    col = ndcpackagecode,  
-    into = c("ndcsegment1", "ndcsegment2", "ndcsegment3"),
-    # Hyphen was used as the delimiter between segments in the FDA NDC files.
-    sep = "-",             
-    # Keep the original column too
-    remove = FALSE        
-  ) %>%
-  dplyr::mutate(
-    # Concatenate segments into a single NDC code, after cleaning
-    ndc = clean_string(paste0(ndcsegment1, ndcsegment2, ndcsegment3))
-  ) %>%
-  dplyr::mutate(
-    # Pad each NDC segment with leading zeroes to ensure standardized formatting
-    ndcsegment1 = stringr::str_pad(ndcsegment1, width = 5, pad = "0"),
-    ndcsegment2 = stringr::str_pad(ndcsegment2, width = 4, pad = "0"),
-    ndcsegment3 = stringr::str_pad(ndcsegment3, width = 2, pad = "0"),
-    
-    # Recreate the full NDC by concatenating the padded segments
-    ndc = paste0(ndcsegment1, ndcsegment2, ndcsegment3)
-  ) %>% 
-  # Randomly sample 100 rows for further processing (useful for testing/debugging)
-  # Only used for the purpose of testing this code.
-  dplyr::sample_n(size = 100)  %>%  
-  
-
-# Filter the master list to remove any entries with an empty or missing NDC
-ndc_input <- ndc_input %>% dplyr::filter(stringr::str_length(ndc) > 0)
+ndc_input <- readRDS("Data/ndc_toy.rds")
 
 # Create a list of unique NDCs for use later in the workflow
 ndc_list <- unique(ndc_input$ndc)
