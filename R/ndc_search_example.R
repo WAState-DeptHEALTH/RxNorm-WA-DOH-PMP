@@ -77,7 +77,6 @@ assign("cache_dir", cache_dir, envir = .GlobalEnv)
 ## ---------------- Load and preprocess input -----------------------------------------------------------------
 
 # Load NDC data from a combined FDA file (includes both product and package info).
-# `ndc_input_file` is the path to this file, and `ndc_input_file_separator` is the delimiter used in the file.
 # FDA NDC product and package file is downloadable from: https://www.fda.gov/drugs/drug-approvals-and-databases/national-drug-code-directory?elqTrackId=b2f8af5cd98146b19b56b47feab2f6a0&elq=b28e6c325c6748e1bc1f24989a3eb0d6&elqaid=4255&elqat=1&elqCampaignId=3344
 # You can use any datasets with NDC with the 11-digit NDC format.
 ndc_input <- readRDS("Data/ndc_toy.rds")
