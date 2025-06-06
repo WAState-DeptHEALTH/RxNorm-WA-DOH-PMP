@@ -60,7 +60,7 @@ output_sub_dir <- fs::path_abs("./Output")
 fs::dir_create(output_sub_dir)
 
 # Define the NDC master file name: Assumes the file contains a list of NDCs
-ndc_input_file <- fs::path_abs(path = "./Data/ndc_20250602.csv")
+ndc_input_file <- fs::path_abs(path = "./data/ndc_20250602.csv")
 
 # Define field separator: Assumes the NDC master file is a pipe-delimited file
 ndc_input_file_separator <- '|' 
