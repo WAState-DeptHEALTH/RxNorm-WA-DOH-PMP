@@ -68,7 +68,7 @@ ndc_input_file_separator <- '|'
 # ----------------- Create and Check cache environment --------------------------------------------------------------
 
 # Create a local folder to store results in a readable 'cache'
-local_cache <- fs::path_abs("./ndc_cache")
+local_cache <- fs::path(Sys.getenv("USERPROFILE"),"ndc_cache")
 cache_dir <- cache_directory(local_cache)
 
 assign("cache_dir", cache_dir, envir = .GlobalEnv)
