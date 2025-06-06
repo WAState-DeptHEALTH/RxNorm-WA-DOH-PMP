@@ -55,12 +55,8 @@ sessionInfo()
 source("R/func_RxNorm.R")
 source("R/func_utilities.R")
 
-# Create an Output Folder to store the final results 
-output_sub_dir <- fs::path_abs("./Output")
-fs::dir_create(output_sub_dir)
-
 # Define the NDC master file name: Assumes the file contains a list of NDCs
-ndc_input_file <- fs::path_abs(path = "./data/ndc_20250602.csv")
+ndc_input_file <- fs::path_abs(path = "./Data/ndc_20250602.csv")
 
 # Define field separator: Assumes the NDC master file is a pipe-delimited file
 ndc_input_file_separator <- '|' 
@@ -70,9 +66,11 @@ ndc_input_file_separator <- '|'
 # Create a local folder to store results in a readable 'cache'
 local_cache <- fs::path(Sys.getenv("USERPROFILE"),"ndc_cache")
 cache_dir <- cache_directory(local_cache)
-
 assign("cache_dir", cache_dir, envir = .GlobalEnv)
 
+# Create an Output Folder to store the final results 
+output_sub_dir <- fs::path(Sys.getenv("USERPROFILE"),"Output")
+fs::dir_create(output_sub_dir)
 
 ## ---------------- Load and preprocess input -----------------------------------------------------------------
 
