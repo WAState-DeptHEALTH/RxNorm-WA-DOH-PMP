@@ -27,11 +27,16 @@ library(ratelimitr)
 library(vroom)
 library(lubridate)
 library(doParallel)
+library(purrr)
 library(furrr)
 library(tidytext) 
 library(jsonlite)
 library(fs)
 library(janitor)
+library(glue)
+library(jsonlite)
+library(digest)
+library(stringr)
 
 # ----------------- Configuration ------------------------------------------------------------------
 

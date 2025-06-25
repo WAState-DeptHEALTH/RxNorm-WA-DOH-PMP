@@ -577,3 +577,17 @@ string_contains <- function(str1, str2) {
   
   return(score)
 }
+
+#' @title extract_and_clean
+#' @description
+#' Helper function to extract and clean data
+#' @export
+extract_and_clean <- function(.data, path, default) {
+  if (purrr::pluck_exists(.data, path)) {
+    purrr::pluck(.data, path) %>%
+      dplyr::bind_rows() %>%
+      janitor::clean_names()
+  } else {
+    tibble::as_tibble(default)
+  }
+}
