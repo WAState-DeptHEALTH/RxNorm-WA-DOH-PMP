@@ -12,6 +12,43 @@ The Washington State Prescription Monitoring Program (PMP) epidemiology team use
 
 This product uses publicly available data from the U.S. National Library of Medicine (NLM), National Institutes of Health, Department of Health and Human Services; NLM is not responsible for the product and does not endorse or recommend this or any other product.
 
+# How to Download and Open This GitHub Repository in RStudio
+
+Follow these steps to download this GitHub repository as a ZIP file and open it as an R Project in RStudio.
+
+---
+
+## 1. Download the Repository as a ZIP File
+
+1. Go to the main page of the GitHub repository.
+2. Click the green **`<> Code`** button at the top right of the file list.
+3. Select **`Download ZIP`** from the dropdown menu.
+4. Save the `.zip` file to your computer.
+
+---
+
+## 2. Unzip the Downloaded File
+
+- Locate the downloaded `.zip` file (e.g., `repo-name-main.zip`).
+- Right-click the file and choose:
+  - **Windows**: `Extract All`
+  - **macOS**: `Open With → Archive Utility`
+- This will create a folder with the contents of the repository.
+
+---
+
+## 3. Open the Project in RStudio
+
+1. Launch **RStudio**.
+2. Go to **File → Open Project...**
+3. Navigate to the unzipped folder.
+4. Select the file that ends in `.Rproj` (e.g., `repo-name.Rproj`) and click **Open**.
+
+---
+
+You are now ready to work with the project in RStudio!
+
+
 # Getting Started
 
 RxNorm Concept Unique Identifier (rxcui) is a unique number assigned to each drug concept within the RxNorm database. An easy way to find rxcuis is to start with NDCs.
