@@ -74,6 +74,7 @@ get_xml <- ratelimitr::limit_rate(function(url, ...) {
   })
 },
 ratelimitr::rate(n = 19, period = 1))
+
 #' @export get_brand_names       
 #' Used to retrieve all brand names from RxNorm
 get_brand_names <- function(){
@@ -137,7 +138,6 @@ who_atc_url <- function(...) {
 
 #' @export who_atc_last_update     
 #' Used to retrieve WHO ATC last update date
-
 who_atc_last_update <- function() {
   tryCatch({
     # Build the URL for the WHO ATC webpage based on the input ATC code.
