@@ -51,60 +51,6 @@ check_and_load_cache <- function(cache_file){
   })
 }
 
-#' @export rxnav_rxnorm_url      
-#' Used to build RxNorm Endpoints url to RxNorm APIs
-rxnav_rxnorm_url <- function(...) {
-  tryCatch({
-    # Construct the full query URL
-    full_query_url <- glue::glue("https://rxnav.nlm.nih.gov/REST/", ...)
-    return(full_query_url)
-  }, error = function(e) {
-    message("Error in function rxnav_rxnorm_url(): ", e)
-    stop(e)
-  })
-}
-
-#' @export rxnav_prescribe_url   
-# Used to build Prescrible RxNorm Endpoints url to Prescribable RxNorm APIs
-rxnav_prescribe_url <- function(...) {
-  tryCatch({
-    
-    # Construct the full query URL
-    full_query_url <- glue::glue("https://rxnav.nlm.nih.gov/REST/Prescribe/", ...)
-    return(full_query_url)
-  }, error = function(e) {
-    message("Error in function rxnav_prescribe_url(): ", e)
-    stop(e)
-  })
-}
-
-#' @export rxnav_rxterms_url     
-#' Used to build RxTerm Endpointsurl to RxTerms API
-rxnav_rxterms_url <- function(...) {
-  tryCatch({
-    
-    # Construct the full query URL
-    full_query_url <- glue::glue("https://rxnav.nlm.nih.gov/REST/RxTerms/", ...)
-    return(full_query_url)
-  }, error = function(e) {
-    message("Error in function rxnav_rxterms_url(): ", e)
-    stop(e)
-  })
-}
-
-#' @export rxnav_rxclass_url     
-#' Used to build RxClass Endpoints url to RxClass API
-rxnav_rxclass_url <- function(...) {
-  tryCatch({
-    # Construct the full query URL
-    full_query_url <- glue::glue("https://rxnav.nlm.nih.gov/REST/rxclass/", ...)
-    return(full_query_url)
-  }, error = function(e) {
-    message("Error in function rxnav_rxclass_url(): ", e)
-    stop(e)
-  })
-}
-
 #' @export get_json              
 #' Used to retrive json data format from API endpoints
 get_json <- ratelimitr::limit_rate(function(url, ...) {
