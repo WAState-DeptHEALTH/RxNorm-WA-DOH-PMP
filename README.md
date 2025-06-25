@@ -49,7 +49,6 @@ options(expressions = 100000)
 options(scipen = 999)  
 
 # Prevent character data from being converted to factors (improves performance for text data) 
-# Clarifies the purpose and benefit of this option
 options(stringsAsFactors = FALSE)
 
 # ----------------- Load Functions --------------------------------------------------------------
