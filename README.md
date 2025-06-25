@@ -16,10 +16,7 @@ This product uses publicly available data from the U.S. National Library of Medi
 
 RxNorm Concept Unique Identifier (rxcui) is a unique number assigned to each drug concept within the RxNorm database. An easy way to find rxcuiis to start with NDCs.
 
-First, the R codes requires that you create a cache directory. RxNorm only allows a maximum of 20 queries per second, so caching your result will prevent you from having to make the same request twice.
-
-
-
+Load R libraries and functions needed.
 ```{r setup-environment,error = FALSE, message = F }
 # ----------------- Load required libraries -----------------
 library(tidyverse)
@@ -60,6 +57,7 @@ source("R/func_RxNorm.R")
 source("R/func_utilities.R")
 ```
 
+First, the R codes requires that you create a cache directory. RxNorm only allows a maximum of 20 queries per second, so caching your result will prevent you from having to make the same request twice.
 
 ```{r setup-cache,error = FALSE, message = F }
 # specify a cache directory
