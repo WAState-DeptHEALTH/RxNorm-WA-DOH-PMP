@@ -14,7 +14,7 @@ This product uses publicly available data from the U.S. National Library of Medi
 
 # Getting Started
 
-RxNorm Concept Unique Identifier (rxcui) is a unique number assigned to each drug concept within the RxNorm database. An easy way to find rxcuiis to start with NDCs.
+RxNorm Concept Unique Identifier (rxcui) is a unique number assigned to each drug concept within the RxNorm database. An easy way to find rxcuis is to start with NDCs.
 
 Load R libraries and functions needed.
 ```{r setup-environment,error = FALSE, message = F }
