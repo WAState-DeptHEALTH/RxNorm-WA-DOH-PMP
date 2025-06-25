@@ -42,7 +42,7 @@ Follow these steps to download this GitHub repository as a ZIP file and open it 
 1. Launch **RStudio**.
 2. Go to **File → Open Project...**
 3. Navigate to the unzipped folder.
-4. Select the file that ends in `.Rproj` (e.g., `repo-name.Rproj`) and click **Open**.
+4. Select the file that ends in `.Rproj` (e.g., `RxNorm-WA-DOH-PMP.Rproj`) and click **Open**.
 
 ---
 
