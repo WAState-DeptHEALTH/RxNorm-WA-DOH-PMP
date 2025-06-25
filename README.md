@@ -18,6 +18,49 @@ RxNorm Concept Unique Identifier (rxcui) is a unique number assigned to each dru
 
 First, the R codes requires that you create a cache directory. RxNorm only allows a maximum of 20 queries per second, so caching your result will prevent you from having to make the same request twice.
 
+
+
+```{r setup-environment,error = FALSE, message = F }
+# ----------------- Load required libraries -----------------
+library(tidyverse)
+library(tidyr)
+library(data.table)
+library(xml2)
+library(hash)
+library(ratelimitr)
+library(vroom)
+library(lubridate)
+library(doParallel)
+library(purrr)
+library(furrr)
+library(tidytext) 
+library(jsonlite)
+library(fs)
+library(janitor)
+library(glue)
+library(jsonlite)
+library(digest)
+library(stringr)
+
+# ----------------- Configuration ------------------------------------------------------------------
+
+# Allow deep recursion to handle nested structures
+options(expressions = 100000)  
+
+# Prevent large/small numbers from being displayed in scientific notation 
+# Ensures numbers are displayed in a more readable, standard format
+options(scipen = 999)  
+
+# Prevent character data from being converted to factors (improves performance for text data) 
+# Clarifies the purpose and benefit of this option
+options(stringsAsFactors = FALSE)
+
+# ----------------- Load Functions --------------------------------------------------------------
+source("R/func_RxNorm.R")
+source("R/func_utilities.R")
+```
+
+
 ```{r setup-cache,error = FALSE, message = F }
 # specify a cache directory
 cache_dir <- cache_directory(fs::path_temp())
